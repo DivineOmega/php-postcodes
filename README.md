@@ -1,7 +1,6 @@
 # PHP Postcodes
 
-This library handles various UK postcode related tasks. Some of its data retrieval features 
-make use of the [Ideal Postcodes](https://ideal-postcodes.co.uk/) service.
+This library handles various UK postcode related tasks.
 
 ## Features
 
@@ -14,9 +13,11 @@ To install, just run the following composer command.
 
 `composer require rapidwebltd/php-postcodes`
 
-## Ideal Postcodes
+## Setup
 
-Using some of the data retrieval features provided by this library require an Ideal Postcodes 
+### Ideal Postcodes
+
+Using some of the data retrieval features provided by this library requires an Ideal Postcodes 
 API key. Sign up at https://ideal-postcodes.co.uk if you need to use these features.
 
 If you are using a `.env` file or another way of manage environment variables in your 
@@ -56,7 +57,7 @@ You can validate a UK postcode is correct using the `Validator` utility class. A
 how to do so is shown below.
 
 ```php
-$validated = \RapidWeb\Postcodes\Utils\Validator::::validatePostcode('ST163DP');
+$validated = \RapidWeb\Postcodes\Utils\Validator::validatePostcode('ST163DP');
 ```
 
 Please note that the postcode validation is case insensitive.
