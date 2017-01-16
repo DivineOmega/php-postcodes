@@ -48,3 +48,14 @@ You will receive an array of addresses, appropriately split by their address lin
 ```php
 $addresses = $idealPostcodes->getAddressesByPostcode('ST163DP');
 ```
+
+### Validate postcode
+
+You can validate a UK postcode is correct using the `Validator` utility class. An example of 
+how to do so is shown below.
+
+```php
+$validated = \RapidWeb\Postcodes\Utils\Validator::::validatePostcode('ST163DP');
+```
+
+Please note that the postcode validation is case insensitive.
