@@ -6,6 +6,7 @@ make use of the [Ideal Postcodes](https://ideal-postcodes.co.uk/) service.
 ## Features
 
 * Address lookup by postcode
+* Postcode validation
 
 ## Installation
 
