@@ -7,7 +7,8 @@
     "license": "LGPL3",
     "require": {
         "php": ">=5.5.9",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "fzaninotto/faker": "^1.6"
     },
     "autoload": {
         "psr-4": {

@@ -6,6 +6,7 @@ This library handles various UK postcode related tasks.
 
 * Address lookup by postcode
 * Postcode validation
+* Generate valid UK postcodes
 
 ## Installation
 
@@ -61,3 +62,12 @@ $validated = \RapidWeb\Postcodes\Utils\Validator::validatePostcode('ST163DP');
 ```
 
 Please note that the postcode validation is case insensitive.
+
+### Generate postcode
+
+This library allows you generate a random, validate, UK postcode. This makes use of the
+`Generator` utility class, as shown below.
+
+```php
+$postcode = \RapidWeb\Postcodes\Utils\Generator::generatePostcode();
+```

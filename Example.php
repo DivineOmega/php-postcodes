@@ -1,9 +1,12 @@
 <?php
 require_once 'vendor/autoload.php';
+use \RapidWeb\Postcodes\Utils\Generator;
 use \RapidWeb\Postcodes\Utils\Validator;
 use \RapidWeb\Postcodes\Factories\IdealPostcodesFactory;
 
-$postcode = 'ST163DP';
+$postcode = Generator::generatePostcode();
+
+var_dump($postcode);
 
 $validated = Validator::validatePostcode($postcode);
 
