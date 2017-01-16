@@ -1,0 +1,17 @@
+{
+    "name": "rapidwebltd/php-postcodes",
+    "type": "library",
+    "description": "PHP Postcodes",
+    "keywords": ["postcodes", "PHP", "PHP library", "PHP postcodes library", "PHP postcodes"],
+    "homepage": "https://github.com/rapidwebltd/php-postcodes",
+    "license": "LGPL3",
+    "require": {
+        "php": ">=5.5.9",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RapidWeb\\Postcodes\\": "src/"
+        }
+    }
+}
