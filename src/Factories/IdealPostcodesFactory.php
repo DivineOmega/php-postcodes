@@ -21,6 +21,6 @@ abstract class IdealPostCodesFactory
             throw new Exception('Environment variable '.$envKey.' is not found or is empty.');
         }
 
-        self::getByAPIKey();
+        self::getByAPIKey($apiKey);
     }
 }
