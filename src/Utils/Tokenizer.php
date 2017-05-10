@@ -27,8 +27,11 @@ abstract class Tokenizer
     private function sanityCheck($postcode)
     {
         $validated = Validator::validatePostcode($postcode);
+        if(!$validated)
+        {
+         throw new Exception("Post code provided is not valid");
+        }
 
-        throw new Exception("Post code provided is not valid");
     }
 
 }
