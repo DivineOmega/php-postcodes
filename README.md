@@ -7,6 +7,7 @@ This library handles various UK postcode related tasks.
 * Address lookup by postcode
 * Postcode validation
 * Generate valid UK postcodes
+* Get a postcode's outward and inward codes
 
 ## Installation
 
@@ -70,4 +71,13 @@ This library allows you generate a random, validate, UK postcode. This makes use
 
 ```php
 $postcode = \RapidWeb\Postcodes\Utils\Generator::generatePostcode();
+```
+
+### Get outward and inward codes
+
+> The first part of the Postcode eg PO1 is called the outward code as it identifies the town or district to which the letter is to be sent for further sorting. The second part of the postcode eg 1EB is called the inward code.
+
+```php
+$outwardCode = \RapidWeb\Postcodes\Utils\Tokenizer::outward('ST163JR'); // Returns ST16
+$inwardCode = \RapidWeb\Postcodes\Utils\Tokenizer::outward('ST163JR'); // Returns 3JR
 ```
