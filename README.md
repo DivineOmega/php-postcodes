@@ -79,5 +79,5 @@ $postcode = \RapidWeb\Postcodes\Utils\Generator::generatePostcode();
 
 ```php
 $outwardCode = \RapidWeb\Postcodes\Utils\Tokenizer::outward('ST163JR'); // Returns ST16
-$inwardCode = \RapidWeb\Postcodes\Utils\Tokenizer::outward('ST163JR'); // Returns 3JR
+$inwardCode = \RapidWeb\Postcodes\Utils\Tokenizer::inward('ST163JR'); // Returns 3JR
 ```
