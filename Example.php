@@ -2,7 +2,7 @@
 require_once 'vendor/autoload.php';
 use \RapidWeb\Postcodes\Utils\Generator;
 use \RapidWeb\Postcodes\Utils\Validator;
-use \RapidWeb\Postcodes\Factories\IdealPostcodesFactory;
+use \RapidWeb\Postcodes\Objects\IdealPostCodes;
 
 $postcode = Generator::generatePostcode();
 
@@ -12,12 +12,7 @@ $validated = Validator::validatePostcode($postcode);
 
 if ($validated) {
 
-    // You should specify IDEAL_POSTCODES_API_KEY in your .env file,
-    // or pass it via the getByAPIKey method.
-
-    $idealPostcodes = IdealPostcodesFactory::getByEnvironment();
-
-    $addresses = $idealPostcodes->getAddressesByPostcode('ST163DP');
+    $addresses = new IdealPostCodes('API_KEY');
 
     var_dump($addresses);
 

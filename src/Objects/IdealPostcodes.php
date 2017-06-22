@@ -3,9 +3,10 @@ namespace RapidWeb\Postcodes\Objects;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
 use Exception;
 
-class IdealPostCodes
+class IdealPostCodes implements PostcodeServiceInterface
 {
     private $apiKey = null;
     private $client = null;
