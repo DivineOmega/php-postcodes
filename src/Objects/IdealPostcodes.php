@@ -4,6 +4,7 @@ namespace RapidWeb\Postcodes\Objects;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
+use RapidWeb\Postcodes\Objects\Address;
 use Exception;
 
 class IdealPostCodes implements PostcodeServiceInterface
@@ -58,7 +59,22 @@ class IdealPostCodes implements PostcodeServiceInterface
             throw new Exception('Response does not contain a result.');
         }
 
-        return $object->result;
+        $addresses = [];
+
+        foreach($object->result as $idealPostcodesAddress) {
+            $address = new Address;
+            $address->companyName = $idealPostcodesAddress->organisation_name;
+            $address->line1 = $idealPostcodesAddress->line_1;
+            $address->line2 = $idealPostcodesAddress->line_2;
+            $address->line3 = $idealPostcodesAddress->line_3;
+            $address->townCity = $idealPostcodesAddress->post_town;
+            $address->county = $idealPostcodesAddress->county;
+            $address->country = $idealPostcodesAddress->country;
+            $address->postcode = $idealPostcodesAddress->postcode;
+            $addresses[] = $address;
+        }
+
+        return $addresses;
 
     }
 }

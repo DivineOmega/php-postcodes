@@ -17,27 +17,22 @@ To install, just run the following composer command.
 
 ## Setup
 
-### Ideal Postcodes
+### Postcode Lookup Services
 
-Using some of the data retrieval features provided by this library requires an Ideal Postcodes 
-API key. Sign up at https://ideal-postcodes.co.uk if you need to use these features.
+Using some of the data retrieval features provided by this library requires a postcode lookup service.
+It currently supports the following postcode lookup services.
 
-You can then use the following code to get an `IdealPostcodes` object.
+* Ideal Postcodes - https://ideal-postcodes.co.uk
+* Postcode Anywhere (PCA Predict) - https://www.pcapredict.com/
 
-```php
-$idealPostcodes = new \RapidWeb\Postcodes\Objects\IdealPostcodes('API_KEY');
-```
+Sign up at the respective website if you need to use these features.
 
-
-### Postcode Anywhere (PCA Predict) 
-
-Using some of the data retrieval features provided by this library requires an Postcode Anywhere (PCA Predict) 
-API key. Sign up at https://www.pcapredict.com/ if you need to use these features.
-
-You can then use the following code to get an `PostcodeAnywhere` object.
+You can then use the following code to get an appropriate postcode lookup service object.
 
 ```php
-$postcodeAnywhere = new \RapidWeb\Postcodes\Objects\PostcodeAnywhere('API_KEY');
+$postcodeLookupService = new \RapidWeb\Postcodes\Objects\IdealPostcodes('API_KEY');
+// OR
+$postcodeLookupService = new \RapidWeb\Postcodes\Objects\PostcodeAnywhere('API_KEY');
 ```
 
 ## Usage
@@ -45,10 +40,10 @@ $postcodeAnywhere = new \RapidWeb\Postcodes\Objects\PostcodeAnywhere('API_KEY');
 ### Get addresses by postcode
 
 To retrieve the addreses associated with a UK postcode, just pass it to the method shown below. 
-You will receive an array of addresses, appropriately split by their address lines.
+You will receive an array of address objects, appropriately split by their address lines and other details.
 
 ```php
-$addresses = $idealPostcodes->getAddressesByPostcode('ST163DP');
+$addresses = $postcodeLookupService->getAddressesByPostcode('ST163DP');
 ```
 
 ### Validate postcode
