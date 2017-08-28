@@ -1,8 +1,6 @@
 <?php
 namespace RapidWeb\Postcodes\Objects;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
 use RapidWeb\Postcodes\Objects\Address;
 use Exception;
