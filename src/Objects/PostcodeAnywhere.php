@@ -29,6 +29,19 @@ class PostcodeAnywhere implements PostcodeServiceInterface
 
     public function getAddressesByPostcode($postcode)
     {
+        $findResponseAddresses = $this->getFindResponseAddressesByPostcode($postcode);
+
+        $addresses = [];
+
+        foreach($findResponseAddresses as $findResponseAddress) {
+            $addresses[] = $this->getAddressById($findResponseAddress->Id);;
+        }
+
+        return $addresses;
+    }
+
+    public function getFindResponseAddressesByPostcode($postcode) 
+    {
         $findResponse = $this->findSOAPClient->PostcodeAnywhere_Interactive_Find_v1_10(
                 [
                     'Key' => $this->apiKey, 
@@ -38,32 +51,31 @@ class PostcodeAnywhere implements PostcodeServiceInterface
 
         $findResponseAddresses = $findResponse->PostcodeAnywhere_Interactive_Find_v1_10_Result->PostcodeAnywhere_Interactive_Find_v1_10_Results;
 
-        $addresses = [];
+        return $findResponseAddresses;
+    }
 
-        foreach($findResponseAddresses as $findResponseAddress) {
-
-            $retrieveByIDResponse = $this->retrieveByIDSOAPClient->PostcodeAnywhere_Interactive_RetrieveById_v1_30(
+    public function getAddressById($id)
+    {
+        $retrieveByIDResponse = $this->retrieveByIDSOAPClient->PostcodeAnywhere_Interactive_RetrieveById_v1_30(
                 [
                     'Key' => $this->apiKey, 
-                    'Id' => $findResponseAddress->Id
+                    'Id' => $id
                 ]
             );
             
-            $retrieveAddress = $retrieveByIDResponse->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Result->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Results;
+        $retrieveAddress = $retrieveByIDResponse->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Result->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Results;
 
-            $address = new Address;
-            $address->companyName = $retrieveAddress->Company;
-            $address->line1 = $retrieveAddress->Line1;
-            $address->line2 = $retrieveAddress->Line2;
-            $address->line3 = $retrieveAddress->Line3;
-            $address->townCity = $retrieveAddress->PostTown;
-            $address->county = $retrieveAddress->County;
-            $address->postcode = $retrieveAddress->Postcode;
-            $address->country = $retrieveAddress->CountryName;
-            $addresses[] = $address;
-        }
+        $address = new Address;
+        $address->companyName = $retrieveAddress->Company;
+        $address->line1 = $retrieveAddress->Line1;
+        $address->line2 = $retrieveAddress->Line2;
+        $address->line3 = $retrieveAddress->Line3;
+        $address->townCity = $retrieveAddress->PostTown;
+        $address->county = $retrieveAddress->County;
+        $address->postcode = $retrieveAddress->Postcode;
+        $address->country = $retrieveAddress->CountryName;
 
-        return $addresses;
+        return $address;
     }
     
 }
