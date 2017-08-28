@@ -34,7 +34,7 @@ class PostcodeAnywhere implements PostcodeServiceInterface
         $addresses = [];
 
         foreach($findResponseAddresses as $findResponseAddress) {
-            $addresses[] = $this->getAddressById($findResponseAddress->Id);;
+            $addresses[] = $this->getAddressById($findResponseAddress->Id);
         }
 
         return $addresses;
