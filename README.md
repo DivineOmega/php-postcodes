@@ -59,7 +59,7 @@ Please note that the postcode validation is case insensitive.
 
 ### Generate postcode
 
-This library allows you generate a random, validate, UK postcode. This makes use of the
+This library allows you generate a random, valid UK postcode. This makes use of the
 `Generator` utility class, as shown below.
 
 ```php
