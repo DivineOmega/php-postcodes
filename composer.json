@@ -1,7 +1,7 @@
 {
     "name": "rapidwebltd/php-postcodes",
     "type": "library",
-    "description": "PHP Postcodes",
+    "description": "This library handles various UK postcode related tasks such as address lookup by postcode, postcode validation, generation of valid UK postcodes and getting a postcode's outward and inward codes.",
     "keywords": ["postcodes", "PHP", "PHP library", "PHP postcodes library", "PHP postcodes"],
     "homepage": "https://github.com/rapidwebltd/php-postcodes",
     "license": "LGPL3",
