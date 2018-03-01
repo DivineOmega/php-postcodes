@@ -1,5 +1,7 @@
 # PHP Postcodes
 
+![Packagist](https://img.shields.io/packagist/dt/rapidwebltd/php-postcodes.svg)
+
 This library handles various UK postcode related tasks.
 
 ## Features
