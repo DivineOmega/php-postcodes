@@ -10,7 +10,7 @@ final class BasicUsageTest extends TestCase
 {
     public function testValidation()
     {
-        $postcodes = ['ST163DP', 'TN30YA', 'ST78PP', 'CM233WE', 'E16AW', 'E106QX'];
+        $postcodes = ['ST163DP', 'TN30YA', 'ST78PP', 'CM233WE', 'E16AW', 'E106QX', 'ST16 3DP'];
 
         foreach($postcodes as $postcode) {
             $this->assertTrue(Validator::validatePostcode($postcode));
@@ -19,7 +19,7 @@ final class BasicUsageTest extends TestCase
 
     public function testValidationFailure()
     {
-        $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake'];
+        $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake', 'ST16 3DPA'];
 
         foreach($postcodes as $postcode) {
             $this->assertFalse(Validator::validatePostcode($postcode));
@@ -71,6 +71,16 @@ final class BasicUsageTest extends TestCase
                 'postcode' => 'E106QX',
                 'outward' => 'E10',
                 'inward' => '6QX'
+            ],
+            [
+                'postcode' => 'ST16 3DP',
+                'outward' => 'ST16',
+                'inward' => '3DP'
+            ],
+            [
+                'postcode' => 'E1 6AW',
+                'outward' => 'E1',
+                'inward' => '6AW'
             ]
         ];
 
