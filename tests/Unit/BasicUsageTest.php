@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use RapidWeb\Postcodes\Utils\Validator;
+use RapidWeb\Postcodes\Exceptions\InvalidPostcodeException;
 use RapidWeb\Postcodes\Utils\Generator;
 use RapidWeb\Postcodes\Utils\Tokenizer;
-use RapidWeb\Postcodes\Exceptions\InvalidPostcodeException;
+use RapidWeb\Postcodes\Utils\Validator;
 
 final class BasicUsageTest extends TestCase
 {
@@ -12,7 +12,7 @@ final class BasicUsageTest extends TestCase
     {
         $postcodes = ['ST163DP', 'TN30YA', 'ST78PP', 'CM233WE', 'E16AW', 'E106QX', 'ST16 3DP'];
 
-        foreach($postcodes as $postcode) {
+        foreach ($postcodes as $postcode) {
             $this->assertTrue(Validator::validatePostcode($postcode));
         }
     }
@@ -21,7 +21,7 @@ final class BasicUsageTest extends TestCase
     {
         $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake', 'ST16 3DPA'];
 
-        foreach($postcodes as $postcode) {
+        foreach ($postcodes as $postcode) {
             $this->assertFalse(Validator::validatePostcode($postcode));
         }
     }
@@ -30,11 +30,11 @@ final class BasicUsageTest extends TestCase
     {
         $postcodes = [];
 
-        for ($i=0; $i < 100; $i++) { 
+        for ($i = 0; $i < 100; $i++) {
             $postcodes[] = Generator::generatePostcode();
         }
 
-        foreach($postcodes as $postcode) {
+        foreach ($postcodes as $postcode) {
             $this->assertTrue(Validator::validatePostcode($postcode));
         }
     }
@@ -44,28 +44,28 @@ final class BasicUsageTest extends TestCase
         $postcodeTestItems = [
             [
                 'postcode' => 'ST163DP',
-                'outward' => 'ST16',
-                'inward' => '3DP'
+                'outward'  => 'ST16',
+                'inward'   => '3DP',
             ],
             [
                 'postcode' => 'TN30YA',
-                'outward' => 'TN3',
-                'inward' => '0YA'
+                'outward'  => 'TN3',
+                'inward'   => '0YA',
             ],
             [
                 'postcode' => 'ST78PP',
-                'outward' => 'ST7',
-                'inward' => '8PP'
+                'outward'  => 'ST7',
+                'inward'   => '8PP',
             ],
             [
                 'postcode' => 'CM233WE',
-                'outward' => 'CM23',
-                'inward' => '3WE'
+                'outward'  => 'CM23',
+                'inward'   => '3WE',
             ],
             [
                 'postcode' => 'E16AW',
-                'outward' => 'E1',
-                'inward' => '6AW'
+                'outward'  => 'E1',
+                'inward'   => '6AW',
             ],
             [
                 'postcode' => 'E106QX',
@@ -84,7 +84,7 @@ final class BasicUsageTest extends TestCase
             ]
         ];
 
-        foreach($postcodeTestItems as $postcodeTestItem) {
+        foreach ($postcodeTestItems as $postcodeTestItem) {
             $this->assertEquals($postcodeTestItem['outward'], Tokenizer::outward($postcodeTestItem['postcode']));
             $this->assertEquals($postcodeTestItem['inward'], Tokenizer::inward($postcodeTestItem['postcode']));
         }

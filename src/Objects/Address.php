@@ -1,4 +1,5 @@
 <?php
+
 namespace RapidWeb\Postcodes\Objects;
 
 class Address
