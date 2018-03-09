@@ -1,9 +1,9 @@
 <?php
+
 namespace RapidWeb\Postcodes\Objects;
 
-use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
-use RapidWeb\Postcodes\Objects\Address;
 use Exception;
+use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
 use SoapClient;
 
 class PostcodeAnywhere implements PostcodeServiceInterface
@@ -22,7 +22,6 @@ class PostcodeAnywhere implements PostcodeServiceInterface
 
         $this->findSOAPClient = new SoapClient('https://services.postcodeanywhere.co.uk/PostcodeAnywhere/Interactive/Find/v1.10/wsdlnew.ws');
         $this->retrieveByIDSOAPClient = new \SoapClient('https://services.postcodeanywhere.co.uk/PostcodeAnywhere/Interactive/RetrieveById/v1.30/wsdlnew.ws');
-
     }
 
     public function getAddressesByPostcode($postcode)
@@ -31,19 +30,19 @@ class PostcodeAnywhere implements PostcodeServiceInterface
 
         $addresses = [];
 
-        foreach($findResponseAddresses as $findResponseAddress) {
+        foreach ($findResponseAddresses as $findResponseAddress) {
             $addresses[] = $this->getAddressById($findResponseAddress->Id);
         }
 
         return $addresses;
     }
 
-    public function getFindResponseAddressesByPostcode($postcode) 
+    public function getFindResponseAddressesByPostcode($postcode)
     {
         $findResponse = $this->findSOAPClient->PostcodeAnywhere_Interactive_Find_v1_10(
                 [
-                    'Key' => $this->apiKey, 
-                    'SearchTerm' => $postcode
+                    'Key'        => $this->apiKey,
+                    'SearchTerm' => $postcode,
                 ]
             );
 
@@ -56,14 +55,14 @@ class PostcodeAnywhere implements PostcodeServiceInterface
     {
         $retrieveByIDResponse = $this->retrieveByIDSOAPClient->PostcodeAnywhere_Interactive_RetrieveById_v1_30(
                 [
-                    'Key' => $this->apiKey, 
-                    'Id' => $id
+                    'Key' => $this->apiKey,
+                    'Id'  => $id,
                 ]
             );
-            
+
         $retrieveAddress = $retrieveByIDResponse->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Result->PostcodeAnywhere_Interactive_RetrieveById_v1_30_Results;
 
-        $address = new Address;
+        $address = new Address();
         $address->companyName = $retrieveAddress->Company;
         $address->line1 = $retrieveAddress->Line1;
         $address->line2 = $retrieveAddress->Line2;
@@ -75,5 +74,4 @@ class PostcodeAnywhere implements PostcodeServiceInterface
 
         return $address;
     }
-    
 }

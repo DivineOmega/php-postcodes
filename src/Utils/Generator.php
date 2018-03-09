@@ -1,7 +1,7 @@
 <?php
+
 namespace RapidWeb\Postcodes\Utils;
 
-use RapidWeb\Postcodes\Utils\Validator;
 use Faker\Factory as FakerFactory;
 
 abstract class Generator
@@ -12,7 +12,7 @@ abstract class Generator
 
         $validated = false;
 
-        while(!$validated) {
+        while (!$validated) {
             $postcode = $faker->postcode;
             $validated = Validator::validatePostcode($postcode);
         }

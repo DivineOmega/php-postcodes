@@ -1,13 +1,13 @@
 <?php
+
 namespace RapidWeb\Postcodes\Objects;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
-use RapidWeb\Postcodes\Objects\Address;
-use Exception;
 
-class IdealPostCodes implements PostcodeServiceInterface
+class IdealPostcodes implements PostcodeServiceInterface
 {
     private $apiKey = null;
     private $client = null;
@@ -23,7 +23,6 @@ class IdealPostCodes implements PostcodeServiceInterface
         $headers = ['Authorization' => 'IDEALPOSTCODES api_key="'.$this->apiKey.'"'];
 
         $this->client = new Client(['base_uri' => 'https://api.ideal-postcodes.co.uk/v1/', 'timeout'  => 3.0, 'headers' => $headers]);
-
     }
 
     public function getAddressesByPostcode($postcode)
@@ -34,10 +33,10 @@ class IdealPostCodes implements PostcodeServiceInterface
 
         return $result;
     }
-    
+
     private function parseResponse(Response $response)
     {
-        if ($response->getStatusCode()!=200) {
+        if ($response->getStatusCode() != 200) {
             throw new Exception('HTTP response code was not 200. Received HTTP reponse code: '.$response->getStatusCode().' ('.$response->getReasonPhrase().')');
         }
 
@@ -51,7 +50,7 @@ class IdealPostCodes implements PostcodeServiceInterface
             throw new Exception('Response code not found or invalid.');
         }
 
-        if ($object->code!=2000) {
+        if ($object->code != 2000) {
             throw new Exception('Response code was not 2000. Response message: '.((isset($object->message) ? $object->message : '(none)')));
         }
 
@@ -61,8 +60,8 @@ class IdealPostCodes implements PostcodeServiceInterface
 
         $addresses = [];
 
-        foreach($object->result as $idealPostcodesAddress) {
-            $address = new Address;
+        foreach ($object->result as $idealPostcodesAddress) {
+            $address = new Address();
             $address->companyName = $idealPostcodesAddress->organisation_name;
             $address->line1 = $idealPostcodesAddress->line_1;
             $address->line2 = $idealPostcodesAddress->line_2;
@@ -75,6 +74,5 @@ class IdealPostCodes implements PostcodeServiceInterface
         }
 
         return $addresses;
-
     }
 }
