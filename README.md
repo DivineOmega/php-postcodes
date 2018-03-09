@@ -43,7 +43,7 @@ $postcodeLookupService = new \RapidWeb\Postcodes\Objects\PostcodeAnywhere('API_K
 
 ### Get addresses by postcode
 
-To retrieve the addreses associated with a UK postcode, just pass it to the method shown below. 
+To retrieve the addresses associated with a UK postcode, just pass it to the method shown below. 
 You will receive an array of address objects, appropriately split by their address lines and other details.
 
 ```php
