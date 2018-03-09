@@ -3,6 +3,7 @@ namespace RapidWeb\Postcodes\Utils;
 
 use RapidWeb\Postcodes\Utils\Validator;
 use Exception;
+use RapidWeb\Postcodes\Exceptions\InvalidPostcodeException;
 
 abstract class Tokenizer
 {
@@ -24,12 +25,12 @@ abstract class Tokenizer
       return $postcodeEnd;
     }
 
-    private function sanityCheck($postcode)
+    private static function sanityCheck($postcode)
     {
         $validated = Validator::validatePostcode($postcode);
         if(!$validated)
         {
-         throw new Exception("Post code provided is not valid");
+            throw new InvalidPostcodeException("Post code provided is not valid");
         }
 
     }
