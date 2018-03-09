@@ -69,19 +69,19 @@ final class BasicUsageTest extends TestCase
             ],
             [
                 'postcode' => 'E106QX',
-                'outward' => 'E10',
-                'inward' => '6QX'
+                'outward'  => 'E10',
+                'inward'   => '6QX',
             ],
             [
                 'postcode' => 'ST16 3DP',
-                'outward' => 'ST16',
-                'inward' => '3DP'
+                'outward'  => 'ST16',
+                'inward'   => '3DP',
             ],
             [
                 'postcode' => 'E1 6AW',
-                'outward' => 'E1',
-                'inward' => '6AW'
-            ]
+                'outward'  => 'E1',
+                'inward'   => '6AW',
+            ],
         ];
 
         foreach ($postcodeTestItems as $postcodeTestItem) {
