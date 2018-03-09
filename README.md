@@ -1,5 +1,7 @@
 # PHP Postcodes
 
+[![Build Status](https://travis-ci.org/rapidwebltd/php-postcodes.svg?branch=master)](https://travis-ci.org/rapidwebltd/php-postcodes)
+[![Coverage Status](https://coveralls.io/repos/github/rapidwebltd/php-postcodes/badge.svg?branch=master)](https://coveralls.io/github/rapidwebltd/php-postcodes?branch=master)
 ![Packagist](https://img.shields.io/packagist/dt/rapidwebltd/php-postcodes.svg)
 
 This library handles various UK postcode related tasks.
