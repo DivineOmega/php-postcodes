@@ -19,7 +19,7 @@ final class BasicUsageTest extends TestCase
 
     public function testValidationFailure()
     {
-        $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake', 'ST16 3DPA'];
+        $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake', 'ST16 3DPA', 'KT18 5DN', 'AB15 4YR', 'B62 8RS'];
 
         foreach ($postcodes as $postcode) {
             $this->assertFalse(Validator::validatePostcode($postcode));
