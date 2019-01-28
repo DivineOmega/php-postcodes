@@ -1,11 +1,11 @@
 <?php
 
-namespace RapidWeb\Postcodes\Objects;
+namespace DivineOmega\Postcodes\Objects;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
+use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
 
 class IdealPostcodes implements PostcodeServiceInterface
 {

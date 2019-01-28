@@ -1,10 +1,10 @@
 <?php
 
 require_once 'vendor/autoload.php';
-use RapidWeb\Postcodes\Objects\IdealPostcodes;
-use RapidWeb\Postcodes\Objects\PostcodeAnywhere;
-use RapidWeb\Postcodes\Utils\Generator;
-use RapidWeb\Postcodes\Utils\Validator;
+use DivineOmega\Postcodes\Objects\IdealPostcodes;
+use DivineOmega\Postcodes\Objects\PostcodeAnywhere;
+use DivineOmega\Postcodes\Utils\Generator;
+use DivineOmega\Postcodes\Utils\Validator;
 
 $postcode = Generator::generatePostcode();
 

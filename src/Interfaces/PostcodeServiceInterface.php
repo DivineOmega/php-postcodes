@@ -1,6 +1,6 @@
 <?php
 
-namespace RapidWeb\Postcodes\Interfaces;
+namespace DivineOmega\Postcodes\Interfaces;
 
 interface PostcodeServiceInterface
 {

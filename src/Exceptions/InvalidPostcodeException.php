@@ -1,6 +1,6 @@
 <?php
 
-namespace RapidWeb\Postcodes\Exceptions;
+namespace DivineOmega\Postcodes\Exceptions;
 
 class InvalidPostcodeException extends \Exception
 {

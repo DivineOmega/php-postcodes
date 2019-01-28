@@ -1,6 +1,6 @@
 <?php
 
-namespace RapidWeb\Postcodes\Utils;
+namespace DivineOmega\Postcodes\Utils;
 
 use Faker\Factory as FakerFactory;
 

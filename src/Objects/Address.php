@@ -1,6 +1,6 @@
 <?php
 
-namespace RapidWeb\Postcodes\Objects;
+namespace DivineOmega\Postcodes\Objects;
 
 class Address
 {

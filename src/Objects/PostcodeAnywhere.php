@@ -1,9 +1,9 @@
 <?php
 
-namespace RapidWeb\Postcodes\Objects;
+namespace DivineOmega\Postcodes\Objects;
 
 use Exception;
-use RapidWeb\Postcodes\Interfaces\PostcodeServiceInterface;
+use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
 use SoapClient;
 
 class PostcodeAnywhere implements PostcodeServiceInterface

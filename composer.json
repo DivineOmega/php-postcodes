@@ -1,9 +1,9 @@
 {
-    "name": "rapidwebltd/php-postcodes",
+    "name": "divineomega/php-postcodes",
     "type": "library",
     "description": "This library handles various UK postcode related tasks such as address lookup by postcode, postcode validation, generation of valid UK postcodes and getting a postcode's outward and inward codes.",
     "keywords": ["postcodes", "PHP", "PHP library", "PHP postcodes library", "PHP postcodes"],
-    "homepage": "https://github.com/rapidwebltd/php-postcodes",
+    "homepage": "https://github.com/divineomega/php-postcodes",
     "license": "LGPL-3.0-only",
     "require": {
         "php": ">=5.5.9",
@@ -13,11 +13,11 @@
     "require-dev": {
         "phpunit/phpunit": "^5.7",
         "fzaninotto/faker": "^1.6",
-        "satooshi/php-coveralls": "^2.0"
+        "php-coveralls/php-coveralls": "^2.0"
     },
     "autoload": {
         "psr-4": {
-            "RapidWeb\\Postcodes\\": "src/"
+            "DivineOmega\\Postcodes\\": "src/"
         }
     }
 }

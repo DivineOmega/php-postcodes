@@ -1,8 +1,8 @@
 <?php
 
-namespace RapidWeb\Postcodes\Utils;
+namespace DivineOmega\Postcodes\Utils;
 
-use RapidWeb\Postcodes\Exceptions\InvalidPostcodeException;
+use DivineOmega\Postcodes\Exceptions\InvalidPostcodeException;
 
 abstract class Tokenizer
 {
