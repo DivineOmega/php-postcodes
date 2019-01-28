@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/divineomega/php-postcodes.svg?branch=master)](https://travis-ci.org/divineomega/php-postcodes)
 [![Coverage Status](https://coveralls.io/repos/github/divineomega/php-postcodes/badge.svg?branch=master)](https://coveralls.io/github/divineomega/php-postcodes?branch=master)
-[![StyleCI](https://styleci.io/repos/79115768/shield?branch=master)](https://styleci.io/repos/79115768)
+[![StyleCI](https://github.styleci.io/repos/167990924/shield?branch=master)](https://github.styleci.io/repos/167990924)
 ![Packagist](https://img.shields.io/packagist/dt/divineomega/php-postcodes.svg)
 
 This library handles various UK postcode related tasks.
