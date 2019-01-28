@@ -2,8 +2,8 @@
 
 namespace DivineOmega\Postcodes\Objects;
 
-use Exception;
 use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
+use Exception;
 use SoapClient;
 
 class PostcodeAnywhere implements PostcodeServiceInterface

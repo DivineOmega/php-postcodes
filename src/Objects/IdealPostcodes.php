@@ -2,10 +2,10 @@
 
 namespace DivineOmega\Postcodes\Objects;
 
+use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
-use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
 
 class IdealPostcodes implements PostcodeServiceInterface
 {

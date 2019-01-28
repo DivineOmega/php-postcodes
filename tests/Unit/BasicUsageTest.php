@@ -1,10 +1,10 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
 use DivineOmega\Postcodes\Exceptions\InvalidPostcodeException;
 use DivineOmega\Postcodes\Utils\Generator;
 use DivineOmega\Postcodes\Utils\Tokenizer;
 use DivineOmega\Postcodes\Utils\Validator;
+use PHPUnit\Framework\TestCase;
 
 final class BasicUsageTest extends TestCase
 {
