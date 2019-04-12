@@ -8,22 +8,48 @@ use PHPUnit\Framework\TestCase;
 
 final class BasicUsageTest extends TestCase
 {
-    public function testValidation()
+    public function validationProvider()
     {
-        $postcodes = ['ST163DP', 'TN30YA', 'ST78PP', 'CM233WE', 'E16AW', 'E106QX', 'ST16 3DP', 'st16 3dp'];
-
-        foreach ($postcodes as $postcode) {
-            $this->assertTrue(Validator::validatePostcode($postcode));
-        }
+        return [
+            ['ST163DP'],
+            ['TN30YA'],
+            ['ST78PP'],
+            ['CM233WE'],
+            ['E16AW'],
+            ['E106QX'],
+            ['ST16 3DP'],
+            ['st16 3dp'],
+        ];
     }
 
-    public function testValidationFailure()
+    /**
+     * @dataProvider validationProvider
+     */
+    public function testValidation($postcode)
     {
-        $postcodes = ['ST163DPA', 'XF2P90', 'Ollie', 'cake', 'ST16 3DPA', 'KT18 5DN', 'AB15 4YR', 'B62 8RS'];
+        $this->assertTrue(Validator::validatePostcode($postcode));
+    }
 
-        foreach ($postcodes as $postcode) {
-            $this->assertFalse(Validator::validatePostcode($postcode));
-        }
+    public function validationFailureProvider()
+    {
+        return [
+            ['ST163DPA'],
+            ['XF2P90'],
+            ['Ollie'],
+            ['cake'],
+            ['ST16 3DPA'],
+            ['KT18 5DN'],
+            ['AB15 4YR'],
+            ['B62 8RS'],
+        ];
+    }
+
+    /**
+     * @dataProvider validationFailureProvider
+     */
+    public function testValidationFailure($postcode)
+    {
+        $this->assertFalse(Validator::validatePostcode($postcode));
     }
 
     public function testGeneration()
@@ -39,9 +65,9 @@ final class BasicUsageTest extends TestCase
         }
     }
 
-    public function testOutwardAndInwardCodes()
+    public function outwardAndInwardCodesProvider()
     {
-        $postcodeTestItems = [
+        return [
             [
                 'postcode' => 'ST163DP',
                 'outward'  => 'ST16',
@@ -88,24 +114,30 @@ final class BasicUsageTest extends TestCase
                 'inward'   => '6AW',
             ],
         ];
+    }
 
-        foreach ($postcodeTestItems as $postcodeTestItem) {
-            $this->assertEquals($postcodeTestItem['outward'], Tokenizer::outward($postcodeTestItem['postcode']));
-            $this->assertEquals($postcodeTestItem['inward'], Tokenizer::inward($postcodeTestItem['postcode']));
-        }
+    /**
+     * @dataProvider outwardAndInwardCodesProvider
+     */
+    public function testOutwardAndInwardCodes($postcode, $outward, $inward)
+    {
+        $this->assertEquals($outward, Tokenizer::outward($postcode));
+        $this->assertEquals($inward, Tokenizer::inward($postcode));
     }
 
     public function testOutwardCodeWithInvalidPostcode()
     {
         $this->expectException(InvalidPostcodeException::class);
+        $this->expectExceptionMessage('Post code provided is not valid');
 
-        $outward = Tokenizer::outward('ST163DPA');
+        Tokenizer::outward('ST163DPA');
     }
 
     public function testInwardCodeWithInvalidPostcode()
     {
         $this->expectException(InvalidPostcodeException::class);
+        $this->expectExceptionMessage('Post code provided is not valid');
 
-        $outward = Tokenizer::inward('ST163DPA');
+        Tokenizer::inward('ST163DPA');
     }
 }
