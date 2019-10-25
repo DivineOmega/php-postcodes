@@ -1,8 +1,6 @@
 <?php
 
-
 namespace DivineOmega\Postcodes\Objects;
-
 
 use DivineOmega\Postcodes\Interfaces\PostcodeServiceInterface;
 use Exception;
