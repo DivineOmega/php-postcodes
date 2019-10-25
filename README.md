@@ -76,6 +76,6 @@ $postcode = \DivineOmega\Postcodes\Utils\Generator::generatePostcode();
 > The first part of the Postcode eg PO1 is called the outward code as it identifies the town or district to which the letter is to be sent for further sorting. The second part of the postcode eg 1EB is called the inward code.
 
 ```php
-$outwardCode = \DivineOmega\Postcodes\Utils\Tokenizer::outward('ST163JR'); // Returns ST16
-$inwardCode = \DivineOmega\Postcodes\Utils\Tokenizer::inward('ST163JR'); // Returns 3JR
+$outwardCode = \DivineOmega\Postcodes\Utils\Tokenizer::outward('ST163DP'); // Returns ST16
+$inwardCode = \DivineOmega\Postcodes\Utils\Tokenizer::inward('ST163DP'); // Returns 3DP
 ```
