@@ -29,6 +29,7 @@ It currently supports the following postcode lookup services.
 
 * Ideal Postcodes - https://ideal-postcodes.co.uk
 * Postcode Anywhere (PCA Predict) - https://www.pcapredict.com/
+* Postcodes.io - http://postcodes.io/
 
 Sign up at the respective website if you need to use these features.
 
@@ -38,6 +39,8 @@ You can then use the following code to get an appropriate postcode lookup servic
 $postcodeLookupService = new \DivineOmega\Postcodes\Objects\IdealPostcodes('API_KEY');
 // OR
 $postcodeLookupService = new \DivineOmega\Postcodes\Objects\PostcodeAnywhere('API_KEY');
+// OR
+$postcodeLookupService = new \DivineOmega\Postcodes\Objects\PostcodesIo();
 ```
 
 ## Usage
