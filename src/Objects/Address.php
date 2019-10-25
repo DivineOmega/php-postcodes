@@ -12,4 +12,6 @@ class Address
     public $county = '';
     public $country = 'United Kingdom';
     public $postcode = '';
+    public $longitude = null;
+    public $latitude = null;
 }

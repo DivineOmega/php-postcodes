@@ -70,6 +70,8 @@ class IdealPostcodes implements PostcodeServiceInterface
             $address->county = $idealPostcodesAddress->county;
             $address->country = $idealPostcodesAddress->country;
             $address->postcode = $idealPostcodesAddress->postcode;
+            $address->longitude = $idealPostcodesAddress->longitude;
+            $address->latitude = $idealPostcodesAddress->latitude;
             $addresses[] = $address;
         }
 
