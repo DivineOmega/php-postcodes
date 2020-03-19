@@ -1,5 +1,7 @@
 <?php
 
+namespace DivineOmega\Postcodes\Tests;
+
 use DivineOmega\Postcodes\Exceptions\InvalidPostcodeException;
 use DivineOmega\Postcodes\Utils\Generator;
 use DivineOmega\Postcodes\Utils\Tokenizer;
