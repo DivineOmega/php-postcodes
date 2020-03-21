@@ -20,5 +20,10 @@
         "psr-4": {
             "DivineOmega\\Postcodes\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DivineOmega\\Postcodes\\Tests\\": "tests/Unit/"
+        }
     }
 }

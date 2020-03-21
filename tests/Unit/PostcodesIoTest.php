@@ -1,5 +1,7 @@
 <?php
 
+namespace DivineOmega\Postcodes\Tests;
+
 use DivineOmega\Postcodes\Objects\PostcodesIo;
 use PHPUnit\Framework\TestCase;
 
