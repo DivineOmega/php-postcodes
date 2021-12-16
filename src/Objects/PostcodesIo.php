@@ -59,6 +59,7 @@ class PostcodesIo implements PostcodeServiceInterface
         $addresses = [];
 
         $address = new Address();
+        $address->line2 = $postcodesIoAddress->parish;
         $address->townCity = $postcodesIoAddress->admin_district;
         $address->county = $postcodesIoAddress->admin_county;
         $address->postcode = $postcodesIoAddress->postcode;
